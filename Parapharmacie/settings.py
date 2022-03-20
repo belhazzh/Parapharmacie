@@ -24,15 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4w(i28^mbxfw1(yrcflx6w$e^iw^-&9278lk&rt1c%h%=3ep2g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://git.heroku.com/parabio.git","localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django_htmx',
     'store.apps.StoreConfig',
     'crispy_forms',
     'django.contrib.admin',
@@ -45,6 +44,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # ...
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -148,3 +149,6 @@ EMAIL_HOST_PASSWORD = "18720001872000"
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 MY_PHONE_NUMBER = "23601838"
+
+
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
